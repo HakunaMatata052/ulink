@@ -1,35 +1,35 @@
 module.exports = [{
   type: 'list',
   name: 'template',
-  message: '请选择 uni-app 模板',
+  message: '请选择 ulink 模板',
   choices: [{
-    name: '默认模板',
+    name: 'ulink默认模板',
     value: 'default'
   },
-  {
-    name: '默认模板(TypeScript)',
-    value: 'default-ts'
-  },
-  {
-    name: 'Hello uni-app',
-    value: 'dcloudio/hello-uniapp'
-  },
-  {
-    name: '前后一体登录模板',
-    value: 'dcloudio/uni-template-login'
-  },
-  {
-    name: '看图模板',
-    value: 'dcloudio/uni-template-picture'
-  },
-  {
-    name: '新闻/资讯类模板',
-    value: 'dcloudio/uni-template-news'
-  },
-  {
-    name: '自定义模板',
-    value: 'custom'
-  }
+  // {
+  //   name: '默认模板(TypeScript)',
+  //   value: 'default-ts'
+  // },
+  // {
+  //   name: 'Hello uni-app',
+  //   value: 'dcloudio/hello-uniapp'
+  // },
+  // {
+  //   name: '前后一体登录模板',
+  //   value: 'dcloudio/uni-template-login'
+  // },
+  // {
+  //   name: '看图模板',
+  //   value: 'dcloudio/uni-template-picture'
+  // },
+  // {
+  //   name: '新闻/资讯类模板',
+  //   value: 'dcloudio/uni-template-news'
+  // },
+  // {
+  //   name: '自定义模板',
+  //   value: 'custom'
+  // }
   ],
   default: 'None'
 },

@@ -1,4 +1,5 @@
 .yarn-integrity
+.DS_Store
 .bin/
 *.md
 .npmignore
