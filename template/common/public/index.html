@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>
-            <%= htmlWebpackPlugin.options.title %>
-        </title>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px'
-            })
-            var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
-            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')
-        </script>
-        <link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- 为了防止页面数字被识别为电话号码，可根据实际需要添加： -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 让添加到主屏幕的网页再次打开时全屏展示，可添加：   -->
+    <meta content="yes" name="mobile-web-app-capable">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tencent-CP" />
+    <meta name="Copyright" content="Tencent" />
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <meta name="Description" content="<%= htmlWebpackPlugin.options.Description %>" />
+    <meta name="Keywords" content="<%= htmlWebpackPlugin.options.Keywords %>" />
+    <link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
+</head>
 
-    <body>
-        <noscript>
-            <strong>Please enable JavaScript to continue.</strong>
-        </noscript>
-        <div id="app"></div>
-        <!-- built files will be auto injected -->
-    </body>
-
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="//ulink.qq.com/ulinksdk/dist/js/ulink.2.0.9.js"></script>
+    <script src="//ossweb-img.qq.com/images/js/PTT/ping_tcss_tgideas_https_min.js"></script>
+    <script type="text/javascript" src="//ulink.qq.com/ulinksdk/dist/js/ulink.screenshot.js" actId="5740" actType="1" channel="1"></script>
+    <script>
+        //此段代码不能放到外链JS中，不要擅自增加或者删改对象属性
+        var setSite = { //设置网站属性
+            siteType: "a20210514yg", //必填项:官网填写"os"，活动专题填写活动目录名称如：，
+            pageType: "index", //必填项:本页面的定位；按照页面含义填写例如main||list||detail||download||share||page1||pageN
+            pageName: "首页", //必填项:页面中文名
+            project: "base", //选填项:如果是官网模块则是必填;按照模块内容，填写固定的对应值;原生官网base;微社区ingame;同人站doujin;赛事match;故事站story;文化站history;粉丝站fans;爆料站coming;论坛bbs;默认other;
+            osact: 'm' //选填项:是否是官网专题(在官网运营的专题)boolean；默认是0；可以在链接上加入参数osact=1来灵活设置
+        }
+        if (typeof (pgvMain) == 'function')
+            pgvMain(); //千万不能忘记！
+    </script>
+</body>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 </html>

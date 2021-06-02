@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "444uni-app"
 			}
 		}
 	],
@@ -11,6 +11,15 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"globalStyle": {
+			"navigationBarTextStyle": "#ffffff",
+			"navigationBarTitleText": "",
+			"navigationBarBackgroundColor": "#BB9656",
+			"backgroundColor": "#F5F5F5",
+			"usingComponents": {
+				"ulink-role-selector": "plugin://ulink-mini-sdk/roleSelector"
+			}
+		}
 	}
 }
