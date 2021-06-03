@@ -30,23 +30,21 @@ function init() {
                     ulink.LoginManager.login();
                     resolve()
                 } else if (ulink.isWxApp()) {
-                    var url = ulink.getQueryString('s_url');
-                    var code = ulink.getQueryString('code');
+                    var url = ulink.getQueryString('s_url')
+                    var code = ulink.getQueryString('code')
                     if (code && url) {
-                        ulink.setCookie('wxcode', code, 86400, location.host, "/");
-                        location.href = url;
+                        ulink.setCookie('wxcode', code, 86400, location.host, "/")
+                        location.href = url
                     } else {
                         ulink.LoginManager.loginByWx();
                     }
                     resolve()
                 } else {
-                    reject(new Error('mobile未登录'))
+                    reject('mobile未登录')
                 }
             } else {
-                reject(new Error('pc未登录'))
+                reject('pc未登录')
             }
-
-            // reject()
         })
     })
     // #endif

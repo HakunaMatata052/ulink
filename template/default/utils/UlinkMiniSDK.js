@@ -9,9 +9,6 @@ const Ulink = () => {
         miniAPI:{
             alert:ulink.alert,
         },
-        init(config){
-            
-        }
     }
 }
 export default Ulink

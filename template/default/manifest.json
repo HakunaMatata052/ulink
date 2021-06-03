@@ -91,6 +91,7 @@
 		"devServer": {
 			// "host":"komori.qq.com",
 			// "baseUrl": "./",
+			// "publicPath":"https://game.gtimg.cn/images/x3g/act/5740/a20210514yg/",
 			"disableHostCheck": true,
 			"port": 443,
 			"https": true,
