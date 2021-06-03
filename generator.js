@@ -4,7 +4,7 @@ const fse = require('fs-extra')
 
 const isBinary = require('isbinaryfile')
 
-async function generate (dir, files, base = '', rootOptions = {}) {
+async function generate(dir, files, base = '', rootOptions = {}) {
   const glob = require('glob')
 
   glob.sync('**/*', {
@@ -44,7 +44,9 @@ module.exports = (api, options, rootOptions) => {
         'postcss-comment': '^2.0.0',
         '@dcloudio/types': '*',
         'miniprogram-api-typings': '*',
-        'mini-types': '*'
+        'mini-types': '*',
+        "less": "^4.0.0",
+        "less-loader": "^7.2.0"
       }
     }
   })
@@ -135,7 +137,7 @@ module.exports = (api, options, rootOptions) => {
       const dirNames = ['cloudfunctions-aliyun', 'cloudfunctions-tcb']
       dirNames.forEach(dirName => {
         const dirPath = path.join(tmp, './', dirName)
-        if(fs.existsSync(dirPath)) {
+        if (fs.existsSync(dirPath)) {
           fse.moveSync(dirPath, path.join(tmp, '../', dirName), {
             overwrite: true
           })
