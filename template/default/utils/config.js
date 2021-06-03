@@ -13,6 +13,10 @@ class Config {
             desc: '',  // 分享内容简介
             link: location.protocol + '//' + location.host + location.pathname,  // 分享链接
             imgUrl: this.assertsUrl + 'share.png', // 分享后朋友看到的图标，大小不能超过6K，极限情况需要压缩至1K
+            isArk: true,
+            arkImgUrl: "", // ark消息的图片链接
+            buttons: [{ "text": "按钮1", "url": "xxx" }, { "text": "按钮2", "url": "xxx" }] // 自定义按钮文案及跳转链接，最多2个按钮
+
         }
         // #endif
     }
