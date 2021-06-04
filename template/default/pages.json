@@ -6,13 +6,6 @@
 				"navigationBarTitleText": "光与夜之恋",
 				"navigationStyle": "custom"
 			}
-		},
-		{
-			"path": "pages/guest/guest",
-			"style": {
-				"navigationBarTitleText": "光与夜之恋",
-				"navigationStyle": "custom"
-			}
 		}
 	],
 	"globalStyle": {
