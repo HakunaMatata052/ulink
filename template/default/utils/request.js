@@ -1,4 +1,4 @@
-import config from './config';
+import config from './config'
 const Ulink = requirePlugin('ulink-mini-sdk')
 export default function http(router, data, option) {
     option = {

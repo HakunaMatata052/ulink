@@ -3,7 +3,9 @@ import init from './utils/init'
 export default {
   onLaunch: function () {
     console.log('App Launch')
-    init().catch(err=>{
+    init().then(err=>{
+		
+	}).catch(err=>{
 		ulink.LoginManager.openLink()
 	})
   },

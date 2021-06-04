@@ -1,12 +1,12 @@
 const initStore = {
 	namespaced: true,
 	state: {
-		config:null,
+		userInfo:null,
 	},
 	getters: {},
 	mutations: {
-		config: (state, config) => {
-			state.config = config
+		setUserInfo: (state, userInfo) => {
+			state.userInfo = userInfo
 		}
 	},
 	actions: {

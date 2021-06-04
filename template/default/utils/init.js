@@ -1,6 +1,7 @@
 
 import config from './config'
-
+import state from '../store';
+import store from '../store';
 function init() {
     // #ifdef H5
     return new Promise((resolve, reject) => {
@@ -23,6 +24,7 @@ function init() {
         // checkLogin
         ulink.LoginManager.checkLogin(userInfo => {
             console.log("已登录~", userInfo)
+            state.commit('init/setUserInfo',userInfo)
             resolve()
         }, () => {
             if (ulink.isMobile()) {
