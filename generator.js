@@ -46,7 +46,8 @@ module.exports = (api, options, rootOptions) => {
         'miniprogram-api-typings': '*',
         'mini-types': '*',
         "less": "^4.0.0",
-        "less-loader": "^7.2.0"
+        "less-loader": "^7.2.0",
+        "terser-webpack-plugin": "^1.4.5"
       }
     }
   })
