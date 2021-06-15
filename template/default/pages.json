@@ -19,7 +19,7 @@
 			"navigationBarBackgroundColor": "#BB9656",
 			"backgroundColor": "#F5F5F5",
 			"usingComponents": {
-				"ulink-role-selector": "plugin://ulink-mini-sdk/roleSelector"
+				// "ulink-role-selector": "plugin://ulink-mini-sdk/roleSelector"
 			}
 		}
 	}

@@ -47,7 +47,7 @@
 	},
 	"quickapp": { /* 快应用特有相关 */},
 	"mp-weixin": { /* 微信小程序特有相关 */
-		"appid": "wx26aef61f4dbc2f48",
+		"appid": "wx41d799abcae74f28",
 		"setting": {
 			"urlCheck": false,
 			"checkSiteMap": false
@@ -87,26 +87,27 @@
 		},
 		"async": {
 			"timeout": 20000
+		},
+		"devServer": {
+			// "host":"komori.qq.com",
+			// "baseUrl": "./",
+			// "publicPath":"https://game.gtimg.cn/images/x3g/act/5740/a20210514yg/",
+			"disableHostCheck": true,
+			"sockHost": "love.qq.com",
+			"hot": true
+			// "port": 443,
+			// "https": true,
+			// "proxy": {
+			// 	"/api": {
+			// 		"target": "https://192.168.0.122/App3704/php/",
+			// 		"ws": true,
+			// 		"changOrigin": true,
+			// 		"logLevel": "debug",
+			// 		"pathRewrite": {
+			// 			"^/api": ""
+			// 		}
+			// 	}
+			// }
 		}
-		// "devServer": {
-		// 	// "host":"komori.qq.com",
-		// 	// "baseUrl": "./",
-		// 	// "publicPath":"https://game.gtimg.cn/images/x3g/act/5740/a20210514yg/",
-		// 	"disableHostCheck": true,
-		// 	"hot": true,
-		// 	"port": 443,
-		// 	"https": true,
-		// 	"proxy": {
-		// 		"/api": {
-		// 			"target": "https://192.168.0.122/App3704/php/",
-		// 			"ws": true,
-		// 			"changOrigin": true,
-		// 			"logLevel": "debug",
-		// 			"pathRewrite": {
-		// 				"^/api": ""
-		// 			}
-		// 		}
-		// 	}
-		// }
 	}
 }

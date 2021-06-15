@@ -1,5 +1,5 @@
 
-import init from "./init.js"
+import user from "./user.js"
 export {
-	init,
+	user,
 }

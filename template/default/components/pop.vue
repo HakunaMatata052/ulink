@@ -38,7 +38,7 @@ export default {
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;z-index: 1000;
   .mask {
     content: "";
     position: absolute;

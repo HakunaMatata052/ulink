@@ -13,7 +13,7 @@
 <script>
 import config from '../utils/config';
 export default {
-  porps: {
+  props: {
     roleSelectorOptions: Object
   },
   data() {

@@ -5,6 +5,7 @@ export default function http(router, data, option) {
         errAlert: true,
         resAlert: false,
         loading: true,
+        methods: 'post',
         ...option
     };
 
@@ -14,7 +15,7 @@ export default function http(router, data, option) {
             route: router,
             game: config.game,
             iActId: config.iActId,
-        },
+        }
         if (option.methods == 'get') {
             params = {
                 ...params,
@@ -31,19 +32,33 @@ export default function http(router, data, option) {
                 res.data = res.jData
                 if (res.iRet == 0) {
                     if (option.resAlert) {
-                        uni.showToast({
-                            title: res.sMsg,
-                            icon: 'none'
-                        })
+                        if (option.resAlert == 'alert') {
+                            uni.showModal({
+                                content: res.sMsg,
+                                showCancel: false,
+                            })
+                        } else {
+                            uni.showToast({
+                                title: res.sMsg,
+                                icon: 'none'
+                            })
+                        }
                     }
                     console.log(router, res.sULinkSerial, res.jData)
                     resolve(res)
                 } else {
                     if (option.errAlert) {
-                        uni.showToast({
-                            title: res.sMsg,
-                            icon: 'none'
-                        })
+                        if (option.errAlert == 'alert') {
+                            uni.showModal({
+                                content: res.sMsg,
+                                showCancel: false,
+                            })
+                        } else {
+                            uni.showToast({
+                                title: res.sMsg,
+                                icon: 'none'
+                            })
+                        }
                     }
                     console.log(router, res.sULinkSerial)
                     reject(res)
@@ -67,10 +82,17 @@ export default function http(router, data, option) {
                     uni.hideLoading()
                 }
                 if (option.resAlert) {
-                    uni.showToast({
-                        title: res.rawData.sMsg,
-                        icon: 'none'
-                    })
+                    if (option.resAlert == 'alert') {
+                        uni.showModal({
+                            content: res.rawData.sMsg,
+                            showCancel: false,
+                        })
+                    } else {
+                        uni.showToast({
+                            title: res.rawData.sMsg,
+                            icon: 'none'
+                        })
+                    }
                 }
                 console.log(router + ' \n ' + res.rawData.sULinkSerial + ' \n ', res.rawData)
                 // if (!app.cacheData) app.cacheData = {}
@@ -86,10 +108,17 @@ export default function http(router, data, option) {
                 }
 
                 if (option.errAlert) {
-                    uni.showToast({
-                        title: err.sMsg,
-                        icon: 'none'
-                    })
+                    if (option.errAlert == 'alert') {
+                        uni.showModal({
+                            content: err.sMsg,
+                            showCancel: false,
+                        })
+                    } else {
+                        uni.showToast({
+                            title: err.sMsg,
+                            icon: 'none'
+                        })
+                    }
                 }
                 if (__wxConfig && __wxConfig.envVersion == 'trial') {
                     uni.setClipboardData({
@@ -98,6 +127,7 @@ export default function http(router, data, option) {
                             uni.showModal({
                                 title: '提示(仅在体验版提示)',
                                 content: `路由：【${router}】\r\n错误码：【${err.iRet}】\r\n提示：【${err.sMsg}】\r\n流水号已复制，发给开发吧！😄`,
+                                showCancel: false,
                             })
                         }
                     })
