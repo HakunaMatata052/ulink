@@ -2,13 +2,14 @@ import Vuex from "vuex"
 import Vue from "vue"
 import * as modules from "./module/export.js"
 import config from '../utils/config'
-Vue.use(Vuex);
+Vue.use(Vuex)
 const store = new Vuex.Store({
 	modules,
 	state: {
 		userInfo: null,
 		isLogin: false,
 		throttleInit: true,
+		titleHeight: 0, // 标题栏高度
 	},
 	mutations: {
 		setUserInfo(state, payload) {
@@ -19,6 +20,9 @@ const store = new Vuex.Store({
 		},
 		setThrottleInit(state, payload) {
 			state.throttleInit = payload
+		},
+		setTitleHeight(state, payload) {
+			state.titleHeight = payload
 		}
 	},
 	actions: {
@@ -29,6 +33,9 @@ const store = new Vuex.Store({
 			if (!state.throttleInit) return
 			return new Promise((resolve, reject) => {
 				// #ifdef H5
+				if (ulink.isMobile() && !ulink.isWxApp() && !ulink.isQQApp()) {
+					ulink.LoginManager.openLink()
+				}
 				ulink.LoginManager.checkLogin(userInfo => {
 					console.log("已登录~", userInfo)
 					commit('setUserInfo', userInfo)
@@ -42,10 +49,6 @@ const store = new Vuex.Store({
 							commit('setThrottleInit', false)
 							resolve()
 						} else if (ulink.isWxApp()) {
-							uni.showToast({
-								title: '请在手Q内打开',
-								icon: 'none'
-							})
 							reject('wx')
 							return
 							var url = ulink.getQueryString('s_url')
@@ -56,7 +59,7 @@ const store = new Vuex.Store({
 							} else {
 								ulink.LoginManager.loginByWx();
 							}
-							// commit('setThrottleInit', false)
+							commit('setThrottleInit', false)
 							resolve()
 						} else {
 							// commit('setThrottleInit', false)

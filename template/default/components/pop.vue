@@ -1,6 +1,6 @@
 <template>
   <view class="popup" v-if="show">
-    <view class="mask" v-if="mask"></view>
+    <view class="mask" v-if="mask" @click="close"></view>
     <view class="popup-content">
       <slot></slot>
     </view>
@@ -19,11 +19,11 @@ export default {
       default: false
     }
   },
-  data() {
-    return {
-    }
-  },
   methods: {
+    close() {
+      console.log(11)
+      this.$emit('close',true)
+    }
   }
 }
 </script>
@@ -38,7 +38,8 @@ export default {
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;z-index: 1000;
+  justify-content: center;
+  z-index: 301;
   .mask {
     content: "";
     position: absolute;
@@ -47,11 +48,11 @@ export default {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
-    z-index: 999;
+    z-index: 300;
   }
   .popup-content {
     position: relative;
-    z-index: 1001;
+    z-index: 301;
     width: 100vw;
   }
 }

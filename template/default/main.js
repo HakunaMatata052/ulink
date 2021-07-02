@@ -7,7 +7,7 @@ import './common/style/common.less'
 // #ifdef H5
 // import Devtools from 'vue-vconsole-devtools'
 // Devtools.initPlugin(new VConsole()); // 需要在创建Vue根实例前调用
-// new VConsole()
+new VConsole()
 // #endif
 Vue.config.productionTip = false
 // #ifdef H5

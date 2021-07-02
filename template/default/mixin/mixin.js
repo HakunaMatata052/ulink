@@ -1,4 +1,4 @@
-import { mapState, mapMutations, mapActions } from "vuex"
+import { mapState, mapActions } from "vuex"
 import config from '../utils/config'
 export default {
     data() {
@@ -8,29 +8,26 @@ export default {
     computed: {
         ...mapState(['isLogin', 'userInfo'])
     },
-    async onLoad() {
+    onLoad() {
         // #ifdef H5
         ulink.share.init(config.share)
         // #endif
-        await this.AppInit()
-            .catch(err => {
-                if (err=='wx') {
-                    uni.showToast({
-                        title: '请在手Q内打开',
-                        icon: 'none'
-                    })
-                } else {
-                    ulink.LoginManager.openLink()
-                }
-            })
+    },
+    // 分享朋友圈
+    onShareTimeline() {
+        return {
+            title: "一起点亮地图，获取生存物资吧~",
+        };
     },
     onShareAppMessage() {
         let titleArry = [
-            "神仙卡面可以免费抽啦，快来帮我秒杀吧~",
+            "救救我！解锁这块地图就能获得更多物资了！",
+            "帮帮我！有了物资就能活下去！",
+            "一起点亮地图，获取生存物资吧~",
         ]
         // 如果有用户昵称，可以加入用户昵称
         // if (this.userInfo.nickName) {
-        //     titleArry.push(`【${this.userInfo.nickName}】邀请or叫你一起加入爱消除小站！`)
+        //     titleArry.push(`【${this.userInfo.nickName}】`)
         // }
         const titleIndex = Math.floor(Math.random() * (titleArry.length - 0) + 0)
         const title = titleArry[titleIndex]
@@ -43,8 +40,8 @@ export default {
     methods: {
         ...mapActions(['AppInit']),
         // 全局跳转
-        go(url) {
-            uni.navigateTo({
+        go(url, type = 'navigateTo') {
+            uni[type]({
                 url,
                 complete: function (done) {
                 },

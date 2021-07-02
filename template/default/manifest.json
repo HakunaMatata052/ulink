@@ -47,7 +47,7 @@
 	},
 	"quickapp": { /* 快应用特有相关 */},
 	"mp-weixin": { /* 微信小程序特有相关 */
-		"appid": "wx41d799abcae74f28",
+		"appid": "wx6c821e89098e6e49",
 		"setting": {
 			"urlCheck": false,
 			"checkSiteMap": false
@@ -55,7 +55,7 @@
 		"usingComponents": true,
 		"plugins": {
 			"ulink-mini-sdk": {
-				"version": "1.10.3",
+				"version": "1.11.7",
 				"provider": "wx2f44ec193f9fbcf3"
 			}
 		}
@@ -93,7 +93,7 @@
 			// "baseUrl": "./",
 			// "publicPath":"https://game.gtimg.cn/images/x3g/act/5740/a20210514yg/",
 			"disableHostCheck": true,
-			"sockHost": "love.qq.com",
+			"sockHost": "lmjx.qq.com",
 			"hot": true
 			// "port": 443,
 			// "https": true,
