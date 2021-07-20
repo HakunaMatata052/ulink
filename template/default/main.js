@@ -5,9 +5,10 @@ import mixin from './mixin/mixin'
 import Ulink from './utils/UlinkMiniSDK'
 import './common/style/common.less'
 // #ifdef H5
+import VConsole from 'vconsole'
 // import Devtools from 'vue-vconsole-devtools'
-// Devtools.initPlugin(new VConsole()); // 需要在创建Vue根实例前调用
-new VConsole()
+// Devtools.initPlugin(new VConsole()) // 需要在创建Vue根实例前调用
+window.vconsole =  new VConsole()
 // #endif
 Vue.config.productionTip = false
 // #ifdef H5

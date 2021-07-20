@@ -8,7 +8,7 @@ const store = new Vuex.Store({
 	state: {
 		userInfo: null,
 		isLogin: false,
-		throttleInit: true,
+		throttleInit: true, // 初始化节流阀
 		titleHeight: 0, // 标题栏高度
 	},
 	mutations: {
@@ -45,7 +45,7 @@ const store = new Vuex.Store({
 				}, () => {
 					if (ulink.isMobile()) {
 						if (ulink.isQQApp()) {
-							ulink.LoginManager.login()
+							ulink.LoginManager.loginByPT()
 							commit('setThrottleInit', false)
 							resolve()
 						} else if (ulink.isWxApp()) {

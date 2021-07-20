@@ -1,4 +1,5 @@
 import config from './config'
+// import copy from 'clipboard-copy'
 const Ulink = requirePlugin('ulink-mini-sdk')
 export default function http(router, data, option) {
     option = {
@@ -60,6 +61,14 @@ export default function http(router, data, option) {
                             })
                         }
                     }
+                    // if(process.env.NODE_ENV=='development'){
+                    //     copy(`路由：【${router}】\r\n错误码：【${res.iRet}】\r\n提示：【${res.sMsg}】\r\n流水号：【${res.sULinkSerial}】`)
+                    //     uni.showModal({
+                    //         title: '提示(仅在测试时提示)',
+                    //         content: `路由：【${router}】\r\n错误码：【${res.iRet}】\r\n提示：【${res.sMsg}】\r\n流水号已复制，发给开发吧！😄`,
+                    //         showCancel: false,
+                    //     })
+                    // }
                     console.log(router, res.sULinkSerial)
                     reject(res)
                 }
@@ -125,7 +134,7 @@ export default function http(router, data, option) {
                         data: `路由：【${router}】\r\n错误码：【${err.iRet}】\r\n提示：【${err.sMsg}】\r\n流水号：【${err.sULinkSerial}】`,
                         success: (res) => {
                             uni.showModal({
-                                title: '提示(仅在体验版提示)',
+                                title: '提示(仅在测试时提示)',
                                 content: `路由：【${router}】\r\n错误码：【${err.iRet}】\r\n提示：【${err.sMsg}】\r\n流水号已复制，发给开发吧！😄`,
                                 showCancel: false,
                             })

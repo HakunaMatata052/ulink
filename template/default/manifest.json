@@ -47,7 +47,7 @@
 	},
 	"quickapp": { /* 快应用特有相关 */},
 	"mp-weixin": { /* 微信小程序特有相关 */
-		"appid": "wx6c821e89098e6e49",
+		"appid": "wx6a44372faf576ca2",
 		"setting": {
 			"urlCheck": false,
 			"checkSiteMap": false
@@ -55,8 +55,12 @@
 		"usingComponents": true,
 		"plugins": {
 			"ulink-mini-sdk": {
-				"version": "1.11.7",
+				"version": "1.11.8",
 				"provider": "wx2f44ec193f9fbcf3"
+			},
+			"tencentvideo": {
+				"version": "1.4.7",
+				"provider": "wxa75efa648b60994b"
 			}
 		}
 	},

@@ -16,26 +16,8 @@ export default {
     // 分享朋友圈
     onShareTimeline() {
         return {
-            title: "一起点亮地图，获取生存物资吧~",
+            title: config.share.title,
         };
-    },
-    onShareAppMessage() {
-        let titleArry = [
-            "救救我！解锁这块地图就能获得更多物资了！",
-            "帮帮我！有了物资就能活下去！",
-            "一起点亮地图，获取生存物资吧~",
-        ]
-        // 如果有用户昵称，可以加入用户昵称
-        // if (this.userInfo.nickName) {
-        //     titleArry.push(`【${this.userInfo.nickName}】`)
-        // }
-        const titleIndex = Math.floor(Math.random() * (titleArry.length - 0) + 0)
-        const title = titleArry[titleIndex]
-        return {
-            title,
-            path: `/pages/index/index`,
-            imageUrl: config.assertsUrl + 'miniapp-share.jpg',
-        }
     },
     methods: {
         ...mapActions(['AppInit']),
@@ -60,5 +42,55 @@ export default {
             PTTSendClick('btn', name, text)
             // #endif
         },
+        setData: function (obj, callback) {
+            let that = this;
+            const handleData = (tepData, tepKey, afterKey) => {
+                tepKey = tepKey.split('.');
+                tepKey.forEach(item => {
+                    if (tepData[item] === null || tepData[item] === undefined) {
+                        let reg = /^[0-9]+$/;
+                        tepData[item] = reg.test(afterKey) ? [] : {};
+                        tepData = tepData[item];
+                    } else {
+                        tepData = tepData[item];
+                    }
+                });
+                return tepData;
+            };
+            const isFn = function (value) {
+                return typeof value == 'function' || false;
+            };
+            Object.keys(obj).forEach(function (key) {
+                let val = obj[key];
+                key = key.replace(/\]/g, '').replace(/\[/g, '.');
+                let front, after;
+                let index_after = key.lastIndexOf('.');
+                if (index_after != -1) {
+                    after = key.slice(index_after + 1);
+                    front = handleData(that, key.slice(0, index_after), after);
+                } else {
+                    after = key;
+                    front = that;
+                }
+                if (front.$data && front.$data[after] === undefined) {
+                    Object.defineProperty(front, after, {
+                        get() {
+                            return front.$data[after];
+                        },
+                        set(newValue) {
+                            front.$data[after] = newValue;
+                            that.$forceUpdate();
+                        },
+                        enumerable: true,
+                        configurable: true
+                    });
+                    front[after] = val;
+                } else {
+                    that.$set(front, after, val);
+                }
+            });
+            // this.$forceUpdate();
+            isFn(callback) && this.$nextTick(callback);
+        }
     }
 }

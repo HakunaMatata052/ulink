@@ -1,5 +1,5 @@
 <template>
-  <view class="txvideo">
+  <view class="container">
     <!--  #ifdef  H5 -->
     <view :id="vid" class="txvideo"></view>
     <!--  #endif -->
@@ -32,7 +32,9 @@
     ...
     "usingComponents": {
         ...
+        // #ifdef  MP-WEIXIN 
         "txv-video": "plugin://tencentvideo/video"
+        // #endif
     }
 }
 */
@@ -59,7 +61,7 @@ export default {
         vid: this.vid,
         width: '100%',
         height: '100%',
-        autoplay: this.autoplay
+        autoplay: this.autoplay,mini:false
       })
     }
     // #endif
@@ -67,8 +69,13 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.container{
+  width: inherit;
+  height: inherit;
+}
 .txvideo {
   width: 100%;
   height: 100%;
+  font-family: serif;
 }
 </style>

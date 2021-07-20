@@ -1,34 +1,23 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "黎明觉醒 - 腾讯光子自研生存大作官方网站-腾讯游戏",
-				"navigationStyle": "custom",
-				"disableScroll":true
-			}
-		},{
-			"path": "pages/map/index",
-			"style": {
-				"navigationBarTitleText": "黎明觉醒 - 腾讯光子自研生存大作官方网站-腾讯游戏",
-				"navigationStyle": "custom",
-				"disableScroll":true
+				"h5": {
+					"titleNView": false
+				}
 			}
 		}
 	],
 	"globalStyle": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "黎明觉醒",
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
-		"globalStyle": {
-			"navigationBarTextStyle": "#ffffff",
-			"navigationBarTitleText": "",
-			"navigationBarBackgroundColor": "#BB9656",
-			"backgroundColor": "#F5F5F5",
-			"usingComponents": {
-				// "ulink-role-selector": "plugin://ulink-mini-sdk/roleSelector"
-			}
+		"usingComponents": {
+			// #ifdef  MP-WEIXIN 
+			"txv-video": "plugin://tencentvideo/video"
+			// #endif
 		}
 	}
 }
