@@ -30,8 +30,11 @@ const store = new Vuex.Store({
 			commit,
 			state,
 		}, payload) {
-			if (!state.throttleInit) return
 			return new Promise((resolve, reject) => {
+				if (!state.throttleInit) {
+					resolve()
+					return
+				}
 				// #ifdef H5
 				if (ulink.isMobile() && !ulink.isWxApp() && !ulink.isQQApp()) {
 					ulink.LoginManager.openLink()
@@ -72,25 +75,25 @@ const store = new Vuex.Store({
 				})
 
 				// #endif
+
 				// #ifdef MP-WEIXIN
 				const Ulink = requirePlugin('ulink-mini-sdk')
 				Ulink.init({
 					sAppId: config.sAppId, // Ulink 活动的 AppId
 					iActId: config.iActId, // Ulink 活动 Id
 					// apiRoute: 'https://ulink.game.qq.com/app/2486/91378a794fb266d1', // Ulink 活动的 api 路由
-					apiRoute: config.routeUrl, //1.0.5
-					sdkVersion: 2,
+					apiRoute: config.routeUrl,
 					game: config.game, // 游戏名
 					wxAppId: config.wxAppId, // 微信小程序的 AppId
 					wx, // wx对象必须传递
 				})
+				resolve(666)
 				commit('setLoginState', true)
 				commit('setThrottleInit', false)
-				resolve()
 
 				// #endif
 			})
 		}
 	}
 })
-export default store;
+export default store
